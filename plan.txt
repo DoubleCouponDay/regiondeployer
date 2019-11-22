@@ -1,0 +1,89 @@
+PLAN
+=======
+
++F# console app invoked
+    +accept number of farmers to deploy as argument
+    +accept path to folder to zip
+        throw if path is not absolute
+
++read api contracts using F# json provider    
+    relative fixed dependency on mmexchanges project
+
+    try to make them generic using the contract type
+
++write some api contract info to the database
+    +read configuration settings from git ignored config files
+        +read connection strings
+
+    +always overwrite existing entries
+
+    +write availableexchanges
+
+    +write availablemarkets
+
+    +overwrite existing data only if there are changes
+
++zip the given folder path and save zip in working directory
+    +use System.IO.Compression.ZipFile
+
++stop masterfarmer    
+
++iterate over hard coded list of regions.
+    +read regions from https://github.com/BuildAzure/azure-region-map as jsonprovider types
+
+    +login to the azure sdk using cloud credentials
+        +read cloud account credentials from config files
+
+    +if cloud already has a region matching current region, use it, else make a new one
+        +resource group
+            create
+                https://docs.microsoft.com/en-us/dotnet/api/overview/azure/resource-manager?view=azure-dotnet
+
+        +azure table 
+            just make one for the entire system
+
+            create
+                https://docs.microsoft.com/en-us/dotnet/api/overview/azure/storage?view=azure-dotnet
+
+        +subscription
+            find existing
+                https://docs.microsoft.com/en-us/dotnet/api/microsoft.azure.management.resourcemanager.fluent.subscriptionclient?view=azure-dotnet
+
+        function
+            create
+                https://docs.microsoft.com/en-us/dotnet/api/microsoft.azure.management.appservice.fluent.functionapp.definition?view=azure-dotnet
+
+            deploy
+                https://github.com/projectkudu/kudu/wiki/Deploying-from-a-zip-file
+
+        get function key from each app instead of master key
+
+    + write hook, key, region to regionalfarmers table
+
+	+ create a personalprojectroot.fs file and include a [<Literal>] string in it with the same name, and put a
+
++tests
+    db connection
+
+    authentication 
+
+    azure connection, authentication 
+
+    check region is deployed 
+
+    check region works 
+
+    found json contracts 
+
+    found node project root 
+
+    edgejsinterop tests
+
+INFO
+=========
+
+how to use fluent apis
+    https://docs.microsoft.com/en-us/dotnet/azure/dotnet-sdk-azure-concepts?view=azure-dotnet
+
+how to authenticate
+    https://docs.microsoft.com/en-us/dotnet/azure/dotnet-sdk-azure-authenticate?view=azure-dotnet

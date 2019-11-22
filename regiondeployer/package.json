@@ -1,0 +1,19 @@
+{
+  "name": "regiondeployer",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://moonmachineltd@bitbucket.org/moonmachineltd/regiondeployer.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "homepage": "https://bitbucket.org/moonmachineltd/regiondeployer#readme",
+  "description": "",
+  "dependencies": {
+    "edgejs": "0.0.0"
+  }
+}
