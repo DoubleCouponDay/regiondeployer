@@ -7,6 +7,18 @@
 
   <ItemGroup>
     <Compile Include="Program.fs" />
+    <Compile Include="randomnamegenerator.fs" />
+    <Compile Include="masterswitch.fs" />
+    <Compile Include="logger.fs" />
+    <Compile Include="directoryzipper.fs" />
+    <Compile Include="deployer.fs" />
+    <Compile Include="databaseseeder.fs" />
+    <Compile Include="databasecleaner.fs" />
+    <Compile Include="contractfiler.fs" />
+    <Compile Include="connectionstringoverrider.fs" />
+    <Compile Include="configadapter.fs" />
+    <Compile Include="clouderror.fs" />
+    <Compile Include="azureauthenticator.fs" />
   </ItemGroup>
 
 </Project>
