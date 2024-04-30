@@ -1,9 +1,7 @@
-﻿module regiondeployer.types
+﻿module regiondeployer
 
 open FSharp.Data
 open System
-open regiondeployer.constants.independentconstants
-open regiondeployer.constants.pathconstants
 
 type public Arguments =
     {

@@ -1,4 +1,4 @@
-﻿module regiondeployer.logger
+﻿module regiondeployer
 
 open System
 open System.IO

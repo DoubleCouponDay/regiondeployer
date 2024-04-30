@@ -1,4 +1,4 @@
-﻿module regiondeployer.randomnamegenerator
+﻿module regiondeployer
 
 open System
 open System.Text

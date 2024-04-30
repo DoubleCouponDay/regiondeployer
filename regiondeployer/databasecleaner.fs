@@ -1,6 +1,5 @@
-﻿module regiondeployer.databasecleaner
+﻿module regiondeployer
 
-open regiondeployer.types
 open MoonMachine.Infrastructure
 open MoonMachine.Infrastructure.Identity
 open MoonMachine.Infrastructure.Entities
@@ -12,14 +11,10 @@ open FSharp.Data
 open System.Data.Entity
 open nodeadapter.adapter
 open Microsoft.Azure.Management.AppService.Fluent
-open regiondeployer.constants.independentconstants
 open MoonMachine.Infrastructure.models
 open System.Collections.Generic
 open System.Data.Entity.Validation
 open System.Linq
-open regiondeployer.constants.pathconstants
-open regiondeployer.azureauthenticator
-open regiondeployer.connectionstringoverrider
 
 let private removeregionalfarmerrecords (logmessage:string -> unit, database:ApplicationDbContext) : unit =
     logmessage "removing previous regional farmer records from database..."

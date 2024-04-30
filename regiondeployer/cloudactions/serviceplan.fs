@@ -1,4 +1,4 @@
-﻿module regiondeployer.cloudactions.serviceplan
+﻿module regiondeployer
 
 open Microsoft.Azure.Management.ResourceManager.Fluent
 open Microsoft.Azure.Management.ResourceManager.Fluent.Core
@@ -8,27 +8,27 @@ open System.Linq
 open Microsoft.Azure.Management.ResourceManager.Fluent.Models
 open Microsoft.Azure.Management.AppService.Fluent
 open System.Configuration
-open regiondeployer.constants.independentconstants
-open regiondeployer.cloudactions.azurefunction.farmer
-open regiondeployer.cloudactions.storage
+open regiondeployer
+open regiondeployer
+open regiondeployer
 open System.Net.Http
 open System.IO.Compression
 open System.IO
 open System.Text
-open regiondeployer.azureauthenticator
+open regiondeployer
 open Microsoft.Rest.Azure
-open regiondeployer.cloudactions.resourcegroup
-open regiondeployer.types
-open regiondeployer.databaseseeder
+open regiondeployer
+open regiondeployer
+open regiondeployer
 open System.Threading.Tasks
 open System.Threading
 open Microsoft.Azure.Management.Storage.Fluent
 open regiondeployer
-open regiondeployer.randomnamegenerator
-open regiondeployer.constants.pathconstants
+open regiondeployer
+open regiondeployer
 open Newtonsoft.Json
 open serversidearchitecture.common
-open regiondeployer.cloudactions.azurefunction
+open regiondeployer
 open System.Collections.Generic
 open Microsoft.Azure.Management.AppService.Fluent.AppServicePlan.Definition
 

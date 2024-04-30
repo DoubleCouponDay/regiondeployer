@@ -1,9 +1,9 @@
-﻿module regiondeployer.cloudactions.resourcegroup
+﻿module regiondeployer
 
 open Microsoft.Azure.Management.AppService.Fluent
 open Microsoft.Azure.Management.Fluent
 open System
-open regiondeployer.constants.independentconstants
+open regiondeployer
 open System.Configuration
 open System.Linq
 open Microsoft.Azure.Management.Storage.Fluent
@@ -14,7 +14,7 @@ open System.Threading.Tasks
 open Microsoft.Azure.Management.ResourceManager.Fluent
 open regiondeployer
 open randomnamegenerator
-open regiondeployer.azureauthenticator
+open regiondeployer
 open MoonMachine.credentials
 open MoonMachine.Infrastructure.models
 open MoonMachine.Core.interop.models

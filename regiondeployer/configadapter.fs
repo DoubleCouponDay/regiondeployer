@@ -1,4 +1,4 @@
-﻿module regiondeployer.configadapter
+﻿module regiondeployer
 
 open MoonMachine.credentials
 open Microsoft.FSharp.Linq

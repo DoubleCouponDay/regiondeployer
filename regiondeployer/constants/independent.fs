@@ -1,7 +1,7 @@
-﻿module regiondeployer.constants.independentconstants
+﻿module regiondeployer
 
 open System.Configuration
-open regiondeployer.constants.personalpaths
+open regiondeployer
 
 [<Literal>]
 let public valueseparator = ": " 

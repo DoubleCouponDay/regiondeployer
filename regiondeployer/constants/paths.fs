@@ -1,6 +1,6 @@
-﻿module regiondeployer.constants.pathconstants
+﻿module regiondeployer
 
-open regiondeployer.constants.personalpaths
+open regiondeployer
 
 [<Literal>]
 let public azureregionsjsonpath = regiondeployersroot + @"azure_regions.json"

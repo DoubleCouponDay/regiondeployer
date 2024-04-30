@@ -1,4 +1,4 @@
-﻿module regiondeployer.constants.helpconstants
+﻿module regiondeployer
 
 [<Literal>]
 let public helpstring = @"

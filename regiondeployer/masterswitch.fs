@@ -1,10 +1,6 @@
-﻿module regiondeployer.masterswitch
+﻿module regiondeployer
 
 open Microsoft.Azure.Management.Fluent
-open regiondeployer.azureauthenticator
-open regiondeployer.constants.independentconstants
-open System
-open regiondeployer.cloudactions.azurefunction.farmer
 open Microsoft.Azure.Management.AppService.Fluent
 
 [<Literal>]

@@ -1,9 +1,6 @@
-﻿module regiondeployer.contractfiler
+﻿module regiondeployer
 
 open System
-open regiondeployer.constants
-open regiondeployer.types
-open regiondeployer.constants.independentconstants
 open System.IO
 
 let private filtercontractthroughtests (file:string, logmessage:string -> unit) : exchangecontract.Root option =

@@ -1,4 +1,4 @@
-﻿module regiondeployer.cloudactions.storage
+﻿module regiondeployer
 
 open Microsoft.Azure.Management.ResourceManager.Fluent
 open Microsoft.Azure.Management.ResourceManager.Fluent.Core
@@ -7,13 +7,13 @@ open System
 open System.Linq
 open Microsoft.Azure.Management.AppService.Fluent
 open System.Configuration
-open regiondeployer.constants.independentconstants
+open regiondeployer
 open Microsoft.Azure.Management.Storage.Fluent.Models
 open Microsoft.Azure.Management.Storage.Fluent
-open regiondeployer.cloudactions.resourcegroup
-open regiondeployer.azureauthenticator
-open regiondeployer.randomnamegenerator
-open regiondeployer.logger
+open regiondeployer
+open regiondeployer
+open regiondeployer
+open regiondeployer
 
 [<Literal>]
 let public defaultstoragename = "mmstorage" 

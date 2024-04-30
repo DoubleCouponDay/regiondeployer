@@ -1,12 +1,12 @@
-﻿module regiondeployer.cloudactions.azurefunction.farmer
+﻿module regiondeployer
 
 open Microsoft.Azure.Management.AppService.Fluent
-open regiondeployer.constants.independentconstants
+open regiondeployer
 open System.Configuration
 open System.Linq
-open regiondeployer.types
-open regiondeployer.randomnamegenerator
-open regiondeployer.azureauthenticator
+open regiondeployer
+open regiondeployer
+open regiondeployer
 
 open Microsoft.Azure.Management.Storage.Fluent
 open Microsoft.Azure.Management.ResourceManager.Fluent.Core

@@ -1,4 +1,4 @@
-﻿module regiondeployer.deployer
+﻿module regiondeployer
 
 open System.Net.Http
 open System.IO
@@ -14,16 +14,6 @@ open Microsoft.Azure.Management.ResourceManager.Fluent.Models
 open Microsoft.Azure.Management.AppService.Fluent
 open Microsoft.Rest.Azure
 open Microsoft.Azure.Management.Storage.Fluent
-
-open regiondeployer.constants.independentconstants
-open regiondeployer.cloudactions.azurefunction.farmer
-open regiondeployer.cloudactions.storage
-open regiondeployer.azureauthenticator
-open regiondeployer.cloudactions.resourcegroup
-open regiondeployer.types
-open regiondeployer.databaseseeder
-open regiondeployer.clouderror
-open regiondeployer.constants.pathconstants
 
 open Newtonsoft.Json
 

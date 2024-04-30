@@ -5,7 +5,6 @@ open System.Collections.Generic
 open System.Linq
 open System.Net.Http
 open System.Text
-open System.Threading.Tasks
 
 let basicauthseparator = ":"
 let basicauthkey = "Authorization"

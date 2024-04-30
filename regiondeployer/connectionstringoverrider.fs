@@ -1,4 +1,4 @@
-﻿module regiondeployer.connectionstringoverrider
+﻿module regiondeployer
 
 open MoonMachine.Infrastructure.Identity
 

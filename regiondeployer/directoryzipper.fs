@@ -1,4 +1,4 @@
-﻿module regiondeployer.directoryzipper
+﻿module regiondeployer
 
 open System.IO.Compression
 open System.IO

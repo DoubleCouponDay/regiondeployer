@@ -1,6 +1,5 @@
-﻿module regiondeployer.databaseseeder
+﻿module regiondeployer
 
-open regiondeployer.types
 open MoonMachine.Infrastructure
 open MoonMachine.Infrastructure.Identity
 open MoonMachine.Infrastructure.Entities
@@ -12,15 +11,10 @@ open FSharp.Data
 open System.Data.Entity
 open nodeadapter.adapter
 open Microsoft.Azure.Management.AppService.Fluent
-open regiondeployer.constants.independentconstants
 open MoonMachine.Infrastructure.models
 open System.Collections.Generic
 open System.Data.Entity.Validation
 open System.Linq
-open regiondeployer.constants.pathconstants
-open regiondeployer.azureauthenticator
-open regiondeployer.contractfiler
-open regiondeployer.connectionstringoverrider
 
 let private createnewauthenticationformat (database:ApplicationDbContext, exchange:AvailableExchange, contract:exchangecontract.Root, logmessage:string -> unit) : authenticationformat =
     String.concat valueseparator ["creating new authentication format for exchange"; exchange.ExchangeName]

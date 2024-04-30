@@ -1,37 +1,18 @@
-﻿module regiondeployer.program
+﻿module regiondeployer
 
 open System
 open System.IO
-open regiondeployer.azureauthenticator
-open regiondeployer.deployer
-open System.Configuration
-open regiondeployer.constants.independentconstants
-open regiondeployer.constants.helpconstants
-open regiondeployer.cloudactions.resourcegroup
+
 open Microsoft.Azure.Management.AppService.Fluent
 open Microsoft.Rest.Azure
-open regiondeployer.cloudactions.azurefunction.farmer
-open regiondeployer.types
-open regiondeployer.directoryzipper
-open regiondeployer.databaseseeder
-open regiondeployer.databasecleaner
 open FSharp.Data
 open Newtonsoft.Json
-open MoonMachine.Infrastructure.Entities
 open System.Dynamic
-open regiondeployer.masterswitch
 open System.Linq
 open Microsoft.FSharp.Control
 open System.Threading.Tasks
 open Microsoft.Azure.Management.ResourceManager.Fluent
 open System.Threading
-open regiondeployer.logger
-open regiondeployer.cloudactions.buggedlinuxapp
-open regiondeployer.cloudactions.storage
-open regiondeployer.clouderror
-open MoonMachine.credentials
-open MoonMachine.Infrastructure.models
-open MoonMachine.Core.interop.models
 
 let private crashifnotabsolute inputpath =
     String.concat valueseparator ["checking if"; inputpath; "is absolute"]

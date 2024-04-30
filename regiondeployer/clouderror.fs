@@ -1,10 +1,9 @@
-﻿module regiondeployer.clouderror
+﻿module regiondeployer
 
 open Microsoft.Azure.Management.Network.Fluent.Models
 open Microsoft.Azure.Management.AppService.Fluent.Models
 open System
 open Microsoft.Rest.Azure
-open regiondeployer.constants.independentconstants
 open System.Threading.Tasks
 open serversidearchitecture.common
 open MoonMachine.Core
