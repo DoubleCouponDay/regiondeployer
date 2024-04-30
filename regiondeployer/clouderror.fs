@@ -1,4 +1,4 @@
-﻿module regiondeployer
+﻿namespace regiondeployer
 
 open Microsoft.Azure.Management.Network.Fluent.Models
 open Microsoft.Azure.Management.AppService.Fluent.Models

@@ -1,20 +1,15 @@
-﻿module regiondeployer
+﻿namespace regiondeployer
 
 open MoonMachine.Infrastructure
 open MoonMachine.Infrastructure.Identity
 open MoonMachine.Infrastructure.Entities
-open System.Configuration
 open System.IO
-open System.Linq
-open System
-open FSharp.Data
 open System.Data.Entity
 open nodeadapter.adapter
 open Microsoft.Azure.Management.AppService.Fluent
 open MoonMachine.Infrastructure.models
 open System.Collections.Generic
 open System.Data.Entity.Validation
-open System.Linq
 
 let private createnewauthenticationformat (database:ApplicationDbContext, exchange:AvailableExchange, contract:exchangecontract.Root, logmessage:string -> unit) : authenticationformat =
     String.concat valueseparator ["creating new authentication format for exchange"; exchange.ExchangeName]

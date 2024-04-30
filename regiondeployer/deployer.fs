@@ -1,4 +1,4 @@
-﻿module regiondeployer
+﻿namespace regiondeployer
 
 open System.Net.Http
 open System.IO

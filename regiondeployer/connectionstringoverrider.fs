@@ -1,4 +1,4 @@
-﻿module regiondeployer
+﻿namespace regiondeployer
 
 open MoonMachine.Infrastructure.Identity
 

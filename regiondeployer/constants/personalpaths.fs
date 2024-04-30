@@ -1,4 +1,4 @@
-﻿module regiondeployer
+﻿namespace regiondeployer
 
 [<Literal>]
 let public regiondeployersroot = @"C:\\Users\\sjsui\\Desktop\\git_workshop\\MoonMachineProprietary\\regiondeployer\\regiondeployer\\"

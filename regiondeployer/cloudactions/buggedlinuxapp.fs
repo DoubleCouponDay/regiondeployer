@@ -1,4 +1,4 @@
-﻿module regiondeployer
+﻿namespace regiondeployer
 
 open Microsoft.Azure.Management.ResourceManager.Fluent
 open Microsoft.Azure.Management.ResourceManager.Fluent.Core

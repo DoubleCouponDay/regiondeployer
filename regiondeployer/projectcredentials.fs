@@ -1,1 +1,1 @@
-module regiondeployer
+namespace regiondeployer
