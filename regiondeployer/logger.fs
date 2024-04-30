@@ -3,7 +3,6 @@
 open System
 open System.IO
 open Microsoft.FSharp.Core
-open regiondeployer.constants.personalpaths
 
 type private logginglock() =
     static member val public lock = new Object()
