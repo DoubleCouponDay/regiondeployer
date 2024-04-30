@@ -19,6 +19,7 @@
     <Compile Include="configadapter.fs" />
     <Compile Include="clouderror.fs" />
     <Compile Include="azureauthenticator.fs" />
+    <Compile Include="types.fs" />
   </ItemGroup>
 
 </Project>

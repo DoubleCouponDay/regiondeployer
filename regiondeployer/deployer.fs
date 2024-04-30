@@ -30,7 +30,6 @@ open regiondeployer.constants.pathconstants
 open Newtonsoft.Json
 open serversidearchitecture.common
 open System.Collections.Generic
-open MoonMachine.Core
 open System.Net.Http.Headers
 
 let private concurrentdeploymentslimit = azureregions.Load(azureregionsjsonpath).Length
