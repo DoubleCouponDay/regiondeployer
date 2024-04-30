@@ -4,6 +4,8 @@
     <TargetFramework>net8.0</TargetFramework>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="models\mmenvironment.fs" />
+    <Compile Include="models\configfile.fs" />
     <Compile Include="azureauthenticator.fs" />
     <Compile Include="httputilities.fs" />
     <Compile Include="randomnamegenerator.fs" />
