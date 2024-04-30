@@ -3,7 +3,7 @@ using System.IO.Compression;
 
 namespace regiondeployer
 {
-    public class ZipManager
+    public class DirectoryZipper
     {
         public const string DefaultZipName = "regionfarmer";
 
