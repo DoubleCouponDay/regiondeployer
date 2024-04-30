@@ -8,17 +8,17 @@ open System
 open MoonMachine.Infrastructure.Helpers
 open MoonMachine.credentials
 
-let public createauthenticatedgateway() : IAzure = 
-    let globalconfig = ProjectCredentials.get.matchingcurrentenvironment()
+type azureauthenticator() =
+    member public this.createauthenticatedgateway() : IAzure = 
+        let globalconfig = ProjectCredentials.get.matchingcurrentenvironment()
 
-    let gateway = (SdkContext.AzureCredentialsFactory
-        .FromServicePrincipal(
-            globalconfig.AzureClientId,
-            globalconfig.AzureClientSecret,
-            globalconfig.AzureTenantId,
-            AzureEnvironment.AzureGlobalCloud
-        )
-    |> Azure.Authenticate)
+        let gateway = (SdkContext.AzureCredentialsFactory
+            .FromServicePrincipal(
+                globalconfig.AzureClientId,
+                globalconfig.AzureClientSecret,
+                globalconfig.AzureTenantId,
+                AzureEnvironment.AzureGlobalCloud
+            )
+        |> Azure.Authenticate)
 
-    gateway.WithDefaultSubscription()
-        
+        gateway.WithDefaultSubscription()

@@ -4,6 +4,7 @@
     <TargetFramework>net8.0</TargetFramework>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="azureauthenticator.fs" />
     <Compile Include="httputilities.fs" />
     <Compile Include="randomnamegenerator.fs" />
     <Compile Include="masterswitch.fs" />
@@ -17,7 +18,6 @@
     <Compile Include="configadapter.fs" />
     <Compile Include="types.fs" />
     <Compile Include="clouderror.fs" />
-    <Compile Include="azureauthenticator.fs" />
     <Compile Include="cloudactions\azurefunction\farmer.fs" />
     <Compile Include="cloudactions\buggedlinuxapp.fs" />
     <Compile Include="cloudactions\resourcegroup.fs" />
