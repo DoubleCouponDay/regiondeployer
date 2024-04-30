@@ -1,128 +1,75 @@
-﻿using MoonMachine.Infrastructure;
-using MoonMachine.Infrastructure.Identity;
-using MoonMachine.Infrastructure.Entities;
-using System.IO;
-using System.Data.Entity;
-using nodeadapter.adapter;
-using Microsoft.Azure.Management.AppService.Fluent;
-using MoonMachine.Infrastructure.models;
-using System.Collections.Generic;
-using System.Data.Entity.Validation;
+﻿using System;
 using System.Linq;
+using MoonMachine.Infrastructure;
+using MoonMachine.Infrastructure.Entities;
 
-public class DatabaseSeeder
+public class DatabaseCleaner
 {
     private ApplicationDbContext database;
+    private Action<string> LogMessage;
 
-    public DatabaseSeeder(ApplicationDbContext db)
+    public DatabaseCleaner(ApplicationDbContext db, Action<string> logMessage)
     {
         database = db;
+        LogMessage = logMessage;
     }
 
-    private AuthenticationFormat CreateNewAuthenticationFormat(AvailableExchange exchange, ExchangeContract.Root contract, Action<string> logMessage)
+    private void RemoveRegionalFarmerRecords()
     {
-        logMessage($"Creating new authentication format for exchange: {exchange.ExchangeName}");
+        LogMessage("Removing previous regional farmer records from database...");
 
-        using (var writer = new StringWriter())
-        {
-            var newFormat = new AuthenticationFormat
-            {
-                Exchange = exchange
-            };
+        var farmers = database.RegionalFarmers.ToList();
+        database.RegionalFarmers.RemoveRange(farmers);
+        database.SaveChanges();
 
-            contract.Info.Authentication.Content.JsonValue.WriteTo(writer, JsonSaveOptions.None);
-            newFormat.Content = writer.ToString();
-            writer.Flush();
-
-            contract.Info.Authentication.Headers.JsonValue.WriteTo(writer, JsonSaveOptions.None);
-            newFormat.Headers = writer.ToString();
-            writer.Flush();
-
-            contract.Info.Authentication.Parameters.JsonValue.WriteTo(writer, JsonSaveOptions.None);
-            newFormat.Parameters = writer.ToString();
-
-            database.AuthenticationFormats.Add(newFormat);
-            database.SaveChanges();
-
-            logMessage("Authentication format created.");
-            return newFormat;
-        }
+        LogMessage("Previous farmer records removed.");
     }
 
-    private AvailableExchange SeedAvailableExchange(ExchangeContract.Root contract, Action<string> logMessage)
+    private void RemoveApiContractRecords()
     {
-        logMessage($"Seeding available exchange: {contract.Info.ContractName}");
+        LogMessage("Removing previous API contract records...");
 
-        var exchangeDuplicate = database.AvailableExchanges
-            .FirstOrDefault(exchange => exchange.ExchangeName == contract.Info.ContractName);
+        var authFormats = database.AuthenticationFormats.ToList();
+        database.AuthenticationFormats.RemoveRange(authFormats);
 
-        if (exchangeDuplicate == null)
+        foreach (var exchange in database.AvailableExchanges)
         {
-            var newExchange = new AvailableExchange
-            {
-                DaysAvailable = contract.Info.Frequencies.Days,
-                HoursAvailable = contract.Info.Frequencies.Hours,
-                MonthAvailable = contract.Info.Frequencies.Months,
-                WeekAvailable = contract.Info.Frequencies.Weeks,
-                ExchangeName = contract.Info.ContractName,
-                RateLimitMilliseconds = contract.Info.RateLimit,
-                IsCurrent = true
-            };
-
-            database.AvailableExchanges.Add(newExchange);
-            logMessage("New available exchange added.");
-            database.SaveChanges();
-            return newExchange;
+            exchange.IsCurrent = false;
         }
-        else
+
+        foreach (var market in database.AvailableMarkets)
         {
-            exchangeDuplicate.DaysAvailable = contract.Info.Frequencies.Days;
-            exchangeDuplicate.HoursAvailable = contract.Info.Frequencies.Hours;
-            exchangeDuplicate.MonthAvailable = contract.Info.Frequencies.Months;
-            exchangeDuplicate.WeekAvailable = contract.Info.Frequencies.Weeks;
-            exchangeDuplicate.RateLimitMilliseconds = contract.Info.RateLimit;
-            exchangeDuplicate.IsCurrent = true;
-
-            logMessage("Existing available exchange updated.");
-            database.SaveChanges();
-            return exchangeDuplicate;
+            market.IsCurrent = false; // Can't remove since a bunch of historic records depend on markets and exchanges existing in relationships
         }
+
+        database.SaveChanges();
+
+        LogMessage("Previous API contract records removed.");
     }
 
-    private void SeedAvailableMarkets(AvailableExchange marketsExchange, Action<string> logMessage)
+    private void RemoveScriptingLanguages()
     {
-        var markets = GetMarkets(marketsExchange.ExchangeName, PathToExchangeAdaptersIndexFile);
+        LogMessage("Removing previous scripting language records...");
 
-        foreach (var currentInputMarket in markets)
+        foreach (var language in database.Languages)
         {
-            logMessage($"Seeding available markets: {currentInputMarket.HoardedCurrency}, {currentInputMarket.PriceCurrency}");
-
-            var marketDuplicate = database.AvailableMarkets
-                .FirstOrDefault(market => market.ExchangeId == marketsExchange.Id &&
-                                         market.Exchange.ExchangeName == marketsExchange.ExchangeName &&
-                                         market.HoardedCurrency == currentInputMarket.HoardedCurrency &&
-                                         market.PriceCurrency == currentInputMarket.PriceCurrency);
-
-            if (marketDuplicate == null)
-            {
-                currentInputMarket.ExchangeId = marketsExchange.Id;
-                currentInputMarket.IsCurrent = true;
-                database.AvailableMarkets.Add(currentInputMarket);
-                database.SaveChanges();
-                logMessage("Added new market.");
-            }
-            else
-            {
-                marketDuplicate.IsCurrent = true;
-                marketDuplicate.MinimumPrice = currentInputMarket.MinimumPrice;
-                marketDuplicate.MinimumVolume = currentInputMarket.MinimumVolume;
-                database.SaveChanges();
-                logMessage("Filled existing market.");
-            }
+            language.IsCurrent = false;
         }
 
-        logMessage("Seeded available markets.");
+        database.SaveChanges();
+
+        LogMessage("Previous scripting language records removed.");
     }
 
-    // Additional methods for seeding other data like scripting languages and regional farmers would follow a similar pattern.
+    public void RemoveInitialState(string connectionString = null)
+    {
+        if (!string.IsNullOrEmpty(connectionString))
+        {
+            database.Database.Connection.ConnectionString = connectionString;
+        }
+
+        RemoveScriptingLanguages();
+        RemoveApiContractRecords();
+        RemoveRegionalFarmerRecords();
+    }
 }
