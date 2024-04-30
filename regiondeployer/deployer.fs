@@ -1,36 +1,31 @@
 ﻿module regiondeployer.deployer
 
+open System.Net.Http
+open System.IO
+open System
+open System.Threading.Tasks
+open System.Collections.Generic
+open System.Net.Http.Headers
+
 open Microsoft.Azure.Management.ResourceManager.Fluent
 open Microsoft.Azure.Management.ResourceManager.Fluent.Core
 open Microsoft.Azure.Management.Fluent
-open System
-open System.Linq
 open Microsoft.Azure.Management.ResourceManager.Fluent.Models
 open Microsoft.Azure.Management.AppService.Fluent
-open System.Configuration
+open Microsoft.Rest.Azure
+open Microsoft.Azure.Management.Storage.Fluent
+
 open regiondeployer.constants.independentconstants
 open regiondeployer.cloudactions.azurefunction.farmer
 open regiondeployer.cloudactions.storage
-open System.Net.Http
-open System.IO.Compression
-open System.IO
-open System.Text
 open regiondeployer.azureauthenticator
-open Microsoft.Rest.Azure
 open regiondeployer.cloudactions.resourcegroup
 open regiondeployer.types
 open regiondeployer.databaseseeder
-open System.Threading.Tasks
-open System.Threading
-open Microsoft.Azure.Management.Storage.Fluent
-open regiondeployer
-open regiondeployer.randomnamegenerator
 open regiondeployer.clouderror
 open regiondeployer.constants.pathconstants
+
 open Newtonsoft.Json
-open serversidearchitecture.common
-open System.Collections.Generic
-open System.Net.Http.Headers
 
 let private concurrentdeploymentslimit = azureregions.Load(azureregionsjsonpath).Length
 
@@ -40,20 +35,15 @@ let private postdeploymentrequest (appname:string, zipfilepath:string, username:
         let filesbytes = File.ReadAllBytes(zipfilepath)
         let httpcontent = new ByteArrayContent(filesbytes)
         httpcontent.Headers.ContentType <- new MediaTypeHeaderValue("application/octet-stream")
-        let basicauthpair : KeyValuePair<string, string> = http.createbasicauthheader(username, password)  
+        let basicauthpair : KeyValuePair<string, string> = httputilities.createbasicauthheader(username, password)
 
         let address = 
             String.concat 
                 String.Empty [@"https://"; appname; ".scm.azurewebsites.net/api/zipdeploy"]
 
-        let requestmessage:HttpRequestMessage = 
-            httputilities.createrequestmessage(address, HttpMethod.Post, httpcontent, basicauthpair)
+        let requestmessage:HttpRequestMessage = httputilities.createrequestmessage(address, HttpMethod.Post, httpcontent, basicauthpair)
 
-        let output = 
-            (globalhttpport.get
-                .client
-                .SendAsync(requestmessage)
-                .Result)
+        let output = http.SendAsync(requestmessage).Result
 
         requestmessage.Dispose()
 
@@ -130,15 +120,16 @@ let public deployarray (inputs:Arguments, zipfilepath:string, failonerror:bool, 
                     storageaccount,
                     logmessage
                 )
-                |> fun resultwip -> match resultwip with
-                | (createdresource, deploymentstatus) ->    
-                    let masterkey = createdresource.GetMasterKey()
-                    databaseseeder.seednewregionalfarmer (createdresource, masterkey, logmessage)
-                    String.concat valueseparator ["regionfarmer"; i.ToString(); "deployed."; currentregion]
-                    |> logmessage 
+                |> fun resultwip -> 
+                    match resultwip with 
+                    | (createdresource, deploymentstatus) ->    
+                        let masterkey = createdresource.GetMasterKey()
+                        databaseseeder.seednewregionalfarmer (createdresource, masterkey, logmessage)
+                        String.concat valueseparator ["regionfarmer"; i.ToString(); "deployed."; currentregion]
+                        |> logmessage 
 
-                    if deploymentstatus = true then
-                        successfuldeployments <- successfuldeployments + 1                
+                        if deploymentstatus = true then
+                            successfuldeployments <- successfuldeployments + 1                
 
             with 
             | error1 -> //parallel.for smothers errors occuring in its worker threads
