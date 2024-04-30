@@ -20,19 +20,4 @@ public class Program
         DeleteFarmerGroupsMatchingCurrentEnvironmentMode(LogToConsoleAndFile);
         DatabaseCleaner.RemoveInitialState(LogToConsoleAndFile);
     }
-
-    private static void Initialize()
-    {
-        // Initialization logic here
-    }
-
-    private static void LogToConsoleAndFile(string message)
-    {
-        // Logging logic here
-    }
-
-    private static void DeleteFarmerGroupsMatchingCurrentEnvironmentMode(Action<string> logFunction)
-    {
-        // Logic to delete farmer groups
-    }
 }
