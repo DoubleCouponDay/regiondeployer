@@ -4,9 +4,6 @@ open Microsoft.Azure.Management.AppService.Fluent
 open regiondeployer
 open System.Configuration
 open System.Linq
-open regiondeployer
-open regiondeployer
-open regiondeployer
 
 open Microsoft.Azure.Management.Storage.Fluent
 open Microsoft.Azure.Management.ResourceManager.Fluent.Core

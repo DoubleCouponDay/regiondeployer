@@ -1,7 +1,5 @@
 ﻿module regiondeployer
 
-open regiondeployer
-
 [<Literal>]
 let public azureregionsjsonpath = regiondeployersroot + @"azure_regions.json"
 

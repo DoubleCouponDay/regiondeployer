@@ -10,10 +10,6 @@ open System.Configuration
 open regiondeployer
 open Microsoft.Azure.Management.Storage.Fluent.Models
 open Microsoft.Azure.Management.Storage.Fluent
-open regiondeployer
-open regiondeployer
-open regiondeployer
-open regiondeployer
 
 [<Literal>]
 let public defaultstoragename = "mmstorage" 

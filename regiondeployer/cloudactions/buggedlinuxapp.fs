@@ -8,30 +8,18 @@ open System.Linq
 open Microsoft.Azure.Management.ResourceManager.Fluent.Models
 open Microsoft.Azure.Management.AppService.Fluent
 open System.Configuration
-open regiondeployer
-open regiondeployer
-open regiondeployer
 open System.Net.Http
 open System.IO.Compression
 open System.IO
 open System.Text
-open regiondeployer
 open Microsoft.Rest.Azure
-open regiondeployer
-open regiondeployer
-open regiondeployer
 open System.Threading.Tasks
 open System.Threading
 open Microsoft.Azure.Management.Storage.Fluent
-open regiondeployer
-open regiondeployer
-open regiondeployer
 open Newtonsoft.Json
 open serversidearchitecture.common
-open regiondeployer
 open System.Collections.Generic
 open Microsoft.Azure.Management.AppService.Fluent.AppServicePlan.Definition
-open regiondeployer
 
 let public fixlinuxappbug(resourcegroupname:string, logmessage:string -> unit, storageaccount:IStorageAccount) : unit =
     logmessage "fixing linux app bug..."

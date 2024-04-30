@@ -1,7 +1,6 @@
 ﻿module regiondeployer
 
 open System.Configuration
-open regiondeployer
 
 [<Literal>]
 let public valueseparator = ": " 

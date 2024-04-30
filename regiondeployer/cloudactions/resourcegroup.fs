@@ -12,9 +12,7 @@ open System.Threading
 open Microsoft.FSharp.Control
 open System.Threading.Tasks
 open Microsoft.Azure.Management.ResourceManager.Fluent
-open regiondeployer
 open randomnamegenerator
-open regiondeployer
 open MoonMachine.credentials
 open MoonMachine.Infrastructure.models
 open MoonMachine.Core.interop.models
