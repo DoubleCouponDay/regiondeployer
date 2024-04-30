@@ -5,7 +5,6 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="httputilities.fs" />
-    <Compile Include="Program.fs" />
     <Compile Include="randomnamegenerator.fs" />
     <Compile Include="masterswitch.fs" />
     <Compile Include="logger.fs" />
@@ -16,9 +15,9 @@
     <Compile Include="contractfiler.fs" />
     <Compile Include="connectionstringoverrider.fs" />
     <Compile Include="configadapter.fs" />
+    <Compile Include="types.fs" />
     <Compile Include="clouderror.fs" />
     <Compile Include="azureauthenticator.fs" />
-    <Compile Include="types.fs" />
     <Compile Include="cloudactions\azurefunction\farmer.fs" />
     <Compile Include="cloudactions\buggedlinuxapp.fs" />
     <Compile Include="cloudactions\resourcegroup.fs" />
@@ -28,5 +27,6 @@
     <Compile Include="constants\independent.fs" />
     <Compile Include="constants\paths.fs" />
     <Compile Include="constants\personalpaths.fs" />
+    <Compile Include="Program.fs" />
   </ItemGroup>
 </Project>
