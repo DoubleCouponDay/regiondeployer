@@ -35,11 +35,12 @@ open System.Net.Http.Headers
 let private concurrentdeploymentslimit = azureregions.Load(azureregionsjsonpath).Length
 
 let private postdeploymentrequest (appname:string, zipfilepath:string, username:string, password:string, logmessage:string -> unit) : HttpResponseMessage =   
+        use http = new HttpClient()
         logmessage "making post request to apps kudu interface..."
         let filesbytes = File.ReadAllBytes(zipfilepath)
         let httpcontent = new ByteArrayContent(filesbytes)
         httpcontent.Headers.ContentType <- new MediaTypeHeaderValue("application/octet-stream")
-        let basicauthpair : KeyValuePair<string, string> = httputilities.createbasicauthheader(username, password)  
+        let basicauthpair : KeyValuePair<string, string> = http.createbasicauthheader(username, password)  
 
         let address = 
             String.concat 
