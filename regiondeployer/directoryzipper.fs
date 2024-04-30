@@ -2,9 +2,6 @@
 
 open System.IO.Compression
 open System.IO
-open System
-open regiondeployer.constants.independentconstants
-open regiondeployer.constants.personalpaths
 
 [<Literal>]
 let public defaultzipname = "regionfarmer"    
