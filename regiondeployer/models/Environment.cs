@@ -1,4 +1,4 @@
-﻿namespace regiondeployer;
+﻿namespace RegionDeployer;
 
 using System;
 using System.Collections.Generic;
@@ -6,7 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-public enum Environment
+public enum RDEnvironment
 {
     debug,
     prod

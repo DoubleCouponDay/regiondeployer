@@ -1,15 +1,15 @@
-﻿using Microsoft.Azure.Management.ResourceManager.Fluent;
-using Microsoft.Azure.Management.ResourceManager.Fluent.Core;
-using Microsoft.Azure.Management.Fluent;
-using System;
-using System.Linq;
-using Microsoft.Azure.Management.AppService.Fluent;
-using System.Configuration;
-using Microsoft.Azure.Management.Storage.Fluent.Models;
-using Microsoft.Azure.Management.Storage.Fluent;
-
-namespace RegionDeployer
+﻿namespace RegionDeployer
 {
+    using Microsoft.Azure.Management.ResourceManager.Fluent;
+    using Microsoft.Azure.Management.ResourceManager.Fluent.Core;
+    using Microsoft.Azure.Management.Fluent;
+    using System;
+    using System.Linq;
+    using Microsoft.Azure.Management.AppService.Fluent;
+    using System.Configuration;
+    using Microsoft.Azure.Management.Storage.Fluent.Models;
+    using Microsoft.Azure.Management.Storage.Fluent;
+
     public static class StorageManager
     {
         public const string DefaultStorageName = "mmstorage";

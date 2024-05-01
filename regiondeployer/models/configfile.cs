@@ -1,8 +1,8 @@
-﻿namespace regiondeployer;
+﻿namespace RegionDeployer;
 
 public struct ConfigFile //made a struct because it enforces property initialization
 {
-    public Environment currentenvironment { get; set; }
+    public RDEnvironment currentenvironment { get; set; }
 
     public string ConnectionString { get; private set; }
 

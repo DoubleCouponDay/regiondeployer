@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using Microsoft.Azure.Management.AppService.Fluent;
+using RegionDeployer;
 
 public static class ListLock
 {
@@ -27,9 +28,10 @@ public class Farmer
         return output;
     }
 
-    public IEnumerable<IFunctionApp> GetFunctionApps(Action<string> logMessage)
+    public IEnumerable<IFunctionApp> GetFunctionApps(Action<string> logMessage, ConfigFile config)
     {
-        var gateway = CreateAuthenticatedGateway();
+        var authenticator = new AzureAuthenticator();
+        var gateway = authenticator.CreateAuthenticatedGateway();
         IEnumerable<IFunctionApp> apps;
         lock (ListLock.Resource)
         {

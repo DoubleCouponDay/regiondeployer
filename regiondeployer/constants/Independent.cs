@@ -1,7 +1,7 @@
-﻿using System.Configuration;
-
-namespace RegionDeployer
+﻿namespace RegionDeployer
 {
+    using System.Configuration;
+
     public class Independent
     {
         public const string ValueSeparator = ": ";

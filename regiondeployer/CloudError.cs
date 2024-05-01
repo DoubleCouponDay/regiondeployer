@@ -1,10 +1,10 @@
-﻿using Microsoft.Azure.Management.Network.Fluent.Models;
+﻿namespace RegionDeployer;
+
+using Microsoft.Azure.Management.Network.Fluent.Models;
 using Microsoft.Azure.Management.AppService.Fluent.Models;
 using System;
 using Microsoft.Rest.Azure;
 using System.Threading.Tasks;
-using serversidearchitecture.common;
-using MoonMachine.Core;
 
 public class CloudErrorHelper
 {

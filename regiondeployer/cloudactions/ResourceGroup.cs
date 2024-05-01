@@ -1,15 +1,16 @@
-﻿using Microsoft.Azure.Management.AppService.Fluent;
-using Microsoft.Azure.Management.Fluent;
-using Microsoft.Azure.Management.ResourceManager.Fluent;
-using Microsoft.Azure.Management.Storage.Fluent;
-using System;
-using System.Configuration;
-using System.Linq;
-using System.Threading;
-using System.Threading.Tasks;
-
-namespace RegionDeployer
+﻿namespace RegionDeployer
 {
+
+    using Microsoft.Azure.Management.AppService.Fluent;
+    using Microsoft.Azure.Management.Fluent;
+    using Microsoft.Azure.Management.ResourceManager.Fluent;
+    using Microsoft.Azure.Management.Storage.Fluent;
+    using System;
+    using System.Configuration;
+    using System.Linq;
+    using System.Threading;
+    using System.Threading.Tasks;
+    
     public class ResourceGroup
     {
         private const int MaxGroupNameLength = 90;

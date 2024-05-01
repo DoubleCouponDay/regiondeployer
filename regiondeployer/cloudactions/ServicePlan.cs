@@ -1,19 +1,19 @@
-﻿using Microsoft.Azure.Management.AppService.Fluent;
-using Microsoft.Azure.Management.AppService.Fluent.AppServicePlan.Definition;
-using Microsoft.Azure.Management.ResourceManager.Fluent;
-using Microsoft.Azure.Management.ResourceManager.Fluent.Core;
-using Newtonsoft.Json;
-using System;
-using System.IO;
-using System.IO.Compression;
-using System.Linq;
-using System.Net.Http;
-using System.Text;
-using System.Threading;
-using System.Threading.Tasks;
-
-namespace RegionDeployer
+﻿namespace RegionDeployer
 {
+    using Microsoft.Azure.Management.AppService.Fluent;
+    using Microsoft.Azure.Management.AppService.Fluent.AppServicePlan.Definition;
+    using Microsoft.Azure.Management.ResourceManager.Fluent;
+    using Microsoft.Azure.Management.ResourceManager.Fluent.Core;
+    using Newtonsoft.Json;
+    using System;
+    using System.IO;
+    using System.IO.Compression;
+    using System.Linq;
+    using System.Net.Http;
+    using System.Text;
+    using System.Threading;
+    using System.Threading.Tasks;
+
     public class ServicePlan
     {
         private const string BuggedServicePlanName = "buggedappservice";
