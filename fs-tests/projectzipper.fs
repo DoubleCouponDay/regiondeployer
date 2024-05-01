@@ -20,5 +20,3 @@ type public when_it_zips_up_a_project(inputlogger:ITestOutputHelper) =
     member public this.it_succeeds() : string =
         let zipfilename = createrandomname(defaultzipname, 20)
         ZipUpProject (regionalfarmersroot, zipfilename, this.logger.WriteLine) 
-
-
