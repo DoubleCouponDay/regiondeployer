@@ -5,6 +5,10 @@ VisualStudioVersion = 17.5.002.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "regiondeployer", "regiondeployer\regiondeployer.csproj", "{309F4A27-D6FF-4D08-BD82-08891F7DB5BB}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "cleanup", "cleanup\cleanup.csproj", "{DFEA9150-6419-46DE-B7F8-16C34A693E05}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "tests", "tests\tests.csproj", "{61AF97BA-65DB-4E63-BF06-73F46C242C36}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +19,14 @@ Global
 		{309F4A27-D6FF-4D08-BD82-08891F7DB5BB}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{309F4A27-D6FF-4D08-BD82-08891F7DB5BB}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{309F4A27-D6FF-4D08-BD82-08891F7DB5BB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DFEA9150-6419-46DE-B7F8-16C34A693E05}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DFEA9150-6419-46DE-B7F8-16C34A693E05}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DFEA9150-6419-46DE-B7F8-16C34A693E05}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DFEA9150-6419-46DE-B7F8-16C34A693E05}.Release|Any CPU.Build.0 = Release|Any CPU
+		{61AF97BA-65DB-4E63-BF06-73F46C242C36}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{61AF97BA-65DB-4E63-BF06-73F46C242C36}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{61AF97BA-65DB-4E63-BF06-73F46C242C36}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{61AF97BA-65DB-4E63-BF06-73F46C242C36}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
