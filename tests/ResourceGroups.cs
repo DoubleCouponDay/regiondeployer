@@ -1,4 +1,4 @@
-﻿namespace tests;
+﻿namespace Tests;
 
 using Xunit;
 using regiondeployer.cloudactions.resourcegroup;
