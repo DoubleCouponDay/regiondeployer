@@ -4,7 +4,7 @@ using Microsoft.Azure.Management.Storage.Fluent;
 using System;
 using Xunit.Abstractions;
 
-namespace RegionDeployer.Tests.Storage
+namespace Tests
 {
     public class WhenAStorageAccountIsCreated : IDisposable
     {
