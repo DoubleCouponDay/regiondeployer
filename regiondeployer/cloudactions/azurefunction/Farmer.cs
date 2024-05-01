@@ -1,12 +1,9 @@
-﻿using Microsoft.Azure.Management.AppService.Fluent;
-using Microsoft.Azure.Management.Storage.Fluent;
-using Microsoft.Azure.Management.ResourceManager.Fluent.Core;
+﻿namespace RegionDeployer;
+
 using System;
 using System.Collections.Generic;
-using Microsoft.Azure.Management.Fluent;
-using Microsoft.Azure.Management.WebSites;
-using MoonMachine.credentials;
 using System.Linq;
+using Microsoft.Azure.Management.AppService.Fluent;
 
 public static class ListLock
 {

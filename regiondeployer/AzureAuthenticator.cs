@@ -1,22 +1,18 @@
-﻿using System;
-using System.Configuration;
-using System.Linq;
+﻿namespace RegionDeployer;
+
 using Microsoft.Azure.Management.Fluent;
 using Microsoft.Azure.Management.ResourceManager.Fluent;
-using MoonMachine.Infrastructure.Helpers;
-using MoonMachine.credentials;
+using regiondeployer;
 
 public class AzureAuthenticator
 {
-    public IAzure CreateAuthenticatedGateway()
+    public IAzure CreateAuthenticatedGateway(ConfigFile config)
     {
-        var globalConfig = ProjectCredentials.Get.MatchingCurrentEnvironment();
-
         var credentials = SdkContext.AzureCredentialsFactory
             .FromServicePrincipal(
-                globalConfig.AzureClientId,
-                globalConfig.AzureClientSecret,
-                globalConfig.AzureTenantId,
+                config.AzureClientId,
+                config.AzureClientSecret,
+                config.AzureTenantId,
                 AzureEnvironment.AzureGlobalCloud);
 
         var authenticatedAzure = Azure.Authenticate(credentials);
